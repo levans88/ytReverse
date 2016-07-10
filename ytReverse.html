@@ -7,24 +7,23 @@
 	<div id="status">Buffering... 0%</div>
 	
 	<script>
-
 		// hide containers
 		document.getElementById("video-placeholder").style.display = "none";
 		document.getElementById("status").style.display = "none";
 
 		// load youtube iframe api
 		var tag = document.createElement('script');
-      	tag.src = "https://www.youtube.com/iframe_api";
+		tag.src = "https://www.youtube.com/iframe_api";
 
-      	var firstScriptTag = document.getElementsByTagName('script')[0];
-      	firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+		var firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      	var i = 2;				// seconds to subtract before playing (avoids ENDED state)
-      	var duration;			// video duration in seconds
-      	var durationMillis;		// video duration in milliseconds
-		var player;				// the player object itself
+		var i = 2;			// seconds to subtract before playing (avoids ENDED state)
+		var duration;			// video duration in seconds
+		var durationMillis;		// video duration in milliseconds
+		var player;			// the player object itself
 		var buffer = true;		// optional but seems smoother when attempt is made to buffer
-		 
+			 
 		function onYouTubeIframeAPIReady(){
 			player = new YT.Player('video-placeholder',{
 				width: 600,
@@ -35,7 +34,7 @@
 				},
 				events: {
 					'onReady': onPlayerReady,
-            		'onStateChange': onPlayerStateChange
+	            			'onStateChange': onPlayerStateChange
 				}
 			});
 
@@ -47,10 +46,9 @@
 			}
 
 			function onPlayerStateChange(event) {
-		    	
-		    	// PLAYING state is never detected, using BUFFERING state instead
+			    	// PLAYING state is never detected, using BUFFERING state instead
 				if (event.data == YT.PlayerState.BUFFERING) {
-						
+							
 					// set parameters for attempt at "buffering"
 					var bufferInterval = 5;	// every X seconds
 
@@ -68,19 +66,17 @@
 
 					// counter
 					var b = 0;
-					
+						
 					// do the "buffering" (while playing, pre-seek to each "bufferInterval" every "bufferTimePerInterval")
 					if (buffer) {
-
 						// display buffering status
 						var status = document.getElementById('status');
 						status.style.display = "inline";
-						
-						var buffSeekIntervalID = setInterval(function() {
 							
+						var buffSeekIntervalID = setInterval(function() {
 							// stop loop when end of video is reached
 							if (b >= duration - i) {
-									clearInterval(buffSeekIntervalID);
+								clearInterval(buffSeekIntervalID);
 							}
 							else {
 								player.seekTo(bufferInterval + b, true);
@@ -100,11 +96,10 @@
 					setTimeout(function() {
 						player.pauseVideo();
 						player.seekTo(duration - i);
-
-						var fps = 4;				// desired frames per second, best I've gotten is 5...
+						var fps = 4;			// desired frames per second, best I've gotten is 5...
 						var mspf = 1000 / fps;		// milliseconds per frame as interval
-						var m = mspf;				// "m" as counter
-						
+						var m = mspf;			// "m" as counter
+							
 						// show video
 						setTimeout(function() {
 							document.getElementById('video-placeholder').style.display = "inline";
@@ -112,8 +107,7 @@
 						}, 500);
 
 						// start reverse "play" (seek through video in reverse by millisecond interval "m") 
-						var revSeekIntervalID = setInterval(function(){
-							
+						var revSeekIntervalID = setInterval(function(){		
 							// stop loop when beginning of video is reached
 							if (m == durationMillis) {
 								clearInterval(revSeekIntervalID);
@@ -125,7 +119,7 @@
 						}, mspf);
 					}, totalBufferTime);
 				}
-		    }
+			}
 		}
 	</script>
 </html>
