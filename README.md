@@ -6,7 +6,7 @@ If you set the fps any higher, seeking will be interrupted periodically to check
 
 I made an attempt to "pre-buffer" a specified amount of video at custom intervals to avoid the check-in's. It's not great but it seems to help.
 
-##Requirements
+###Requirements
 - Requires the Google Cast / Chromecast extension from the Chrome Web Store:
   https://chrome.google.com/webstore/detail/google-cast/boadgeojelhgndaghljhdicfkmllpafd?hl=en
   (without it you will see JS console errors resulting in erratic video playback)
