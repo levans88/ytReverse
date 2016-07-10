@@ -10,6 +10,7 @@ I made an attempt to "pre-buffer" a specified amount of video at custom interval
 - Requires the Google Cast / Chromecast extension from the Chrome Web Store:
   https://chrome.google.com/webstore/detail/google-cast/boadgeojelhgndaghljhdicfkmllpafd?hl=en
   (without it you will see JS console errors resulting in erratic video playback)
+- There is an unresolved error in the console: "Failed to execute 'postMessage' on 'DOMWindow'"...
 - You may have to disable ad blockers on the page (I had to disable uBlock Origin for the page)
 - The settings are explained in the code. The example video used is here:
   https://www.youtube.com/watch?v=RENJ6WaRA3o
