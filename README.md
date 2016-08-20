@@ -1,4 +1,4 @@
-##Update 8-19-2016
+###Update 8-19-2016
 Seems like there was a change, as even when the video isn't playing forward it is seeking forward after seeking backward. Currently unresolved.
 
 #ytReverse
