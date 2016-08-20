@@ -1,4 +1,5 @@
-Update 8-19-2016: Seems like something changed, as even when the video isn't playing forward it is seeking forward after seeking backward. Currently unresolved.
+##Update 8-19-2016
+Seems like there was a change, as even when the video isn't playing forward it is seeking forward after seeking backward. Currently unresolved.
 
 #ytReverse
 ##A Youtube Reverse Video Player in JavaScript
