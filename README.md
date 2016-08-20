@@ -1,3 +1,5 @@
+Update 8-19-2016: Seems like something changed, as even when the video isn't playing forward it is seeking forward after seeking backward. Currently unresolved.
+
 #ytReverse
 ##A Youtube Reverse Video Player in JavaScript
 This code seeks backwards through a Youtube video in a paused state at ~4 frames per second providing the illusion of playing a video in reverse.
